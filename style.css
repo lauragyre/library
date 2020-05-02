@@ -8,7 +8,14 @@
 }
 
 body {
-    padding: 10vw;
+    padding: 5vw;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #6d6d6d;
+    padding-bottom: 1rem;
+    
 }
 
 .card_container {
@@ -33,12 +40,16 @@ body {
 }
 
 #add {
-    margin-top: 3em;
+
+    margin-top: 1rem;
     padding: 1rem;
     background-color: aquamarine;
+    width: 3rem;
+    border-radius: 1.5rem;
     color: white;
     font-weight: bold;
-    border-radius: 10px;
+    
+    
 }
 
 #add:focus, .toggle:focus {
@@ -49,12 +60,12 @@ body {
 
 .toggle {
     background-color: white;
-    padding: 1rem;
     border-radius: 10px;
     margin-left: 2rem;
     font-size: 2rem;
     display: inline;
-    height: 3.5rem;
+    height: 3rem;
+    width: 3rem;
     color: aquamarine;
 
 }

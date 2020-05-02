@@ -49,7 +49,7 @@ function render (array) {
       info.append(document.createTextNode(myLibrary[i].pages + ' pages'));
       let isRead = document.createElement('button');
       isRead.className = 'toggle';
-      isRead.append(document.createTextNode('*'));
+      isRead.append(document.createTextNode('X'));
       myDiv.append(isRead);
       
       if (myLibrary[i].read == true) {
