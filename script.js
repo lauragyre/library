@@ -1,10 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read  = read;
+    this.read  = false;
     this.info = function () {
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
@@ -15,11 +15,10 @@ function addBookToLibrary() {
     let title = prompt('title');
     let author = prompt('author');
     let pages = prompt('pages');
-    let read = prompt('read');
-    console.log(title + author + pages + read);
-    if (title && author && pages && read) {
+    console.log(title + author + pages);
+    if (title && author && pages) {
         
-        myLibrary.push(new Book(title, author, pages, read));
+        myLibrary.push(new Book(title, author, pages));
         console.log('executing');
     }
 }
@@ -39,12 +38,48 @@ function render (array) {
     for (let i = 0; i < array.length; i++) {
       let myDiv = document.createElement('div');
       myDiv.className = 'card';
-      myDiv.append(document.createTextNode(myLibrary[i].title));
-      myDiv.append(document.createElement('br'));
-      myDiv.append(document.createTextNode('by ' + myLibrary[i].author));
-      myDiv.append(document.createElement('br'));
-      myDiv.append(document.createTextNode(myLibrary[i].pages + ' pages'));
       cardContainer.append(myDiv);
+      let info = document.createElement('div');
+      info.className = 'card_info';
+      myDiv.append(info);
+      info.append(document.createTextNode(myLibrary[i].title));
+      info.append(document.createElement('br'));
+      info.append(document.createTextNode('by ' + myLibrary[i].author));
+      info.append(document.createElement('br'));
+      info.append(document.createTextNode(myLibrary[i].pages + ' pages'));
+      let isRead = document.createElement('button');
+      isRead.className = 'toggle';
+      isRead.append(document.createTextNode('*'));
+      myDiv.append(isRead);
+      
+      if (myLibrary[i].read == true) {
+        myDiv.style.backgroundColor = '#c2ffee';
+        myDiv.style.color = '#6d6d6d';
+        isRead.style.backgroundColor = 'aquamarine';
+        isRead.style.color = 'white'; 
+        } else {
+            myDiv.style.backgroundColor = 'aquamarine';
+            myDiv.style.color = 'white';
+            isRead.style.color = 'white';
+            isRead.style.color = 'aquamarine';
+        }
+
+
+      isRead.addEventListener('click', function (){
+        if (myLibrary[i].read == true) {
+        this.parentElement.style.backgroundColor = 'aquamarine';
+        this.parentElement.style.color = 'white';
+        this.style.backgroundColor = 'white';
+        this.style.color = 'aquamarine';
+        myLibrary[i].read = false;    
+        } else {
+        this.parentElement.style.backgroundColor = '#c2ffee';
+        this.parentElement.style.color = '#6d6d6d';
+        this.style.backgroundColor = 'aquamarine';
+        this.style.color = 'white'; 
+        myLibrary[i].read = true;
+        }
+      })
     }
 }
 
@@ -52,7 +87,6 @@ add.onclick=function(){
     addBookToLibrary();
     render(myLibrary);
 }
-
 
 
 render(myLibrary);

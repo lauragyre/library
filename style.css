@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 16px;
-    color: white;
     border: 0;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -12,17 +11,50 @@ body {
     padding: 10vw;
 }
 
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
-    background-color: lightskyblue;
+    background-color: aquamarine;
     padding: 2em;
     border-radius: 10px;
     max-width: 400px;
-    margin: 1em 0;
+    margin: 1em 2em 1em 0;
+    font-weight: bold;
+    display: flex;
+    color: white;
+}
+
+.cardInfo{
+    display: inline;
+    
 }
 
 #add {
     margin-top: 3em;
     padding: 1rem;
-    background-color: salmon;
-    border-radius: 50%;
+    background-color: aquamarine;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#add:focus, .toggle:focus {
+    
+    outline: none;
+    border: 0;
+}
+
+.toggle {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+    font-size: 2rem;
+    display: inline;
+    height: 3.5rem;
+    color: aquamarine;
+
 }
